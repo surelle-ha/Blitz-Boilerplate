@@ -4,8 +4,8 @@
 	"description": "A boilerplate for NestJS Packages.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/surelle-ha"
+	"repository": {
+		"url": "https://github.com/surelle-ha/Blitz-Boilerplate.git"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
