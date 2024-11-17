@@ -5,7 +5,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/@surelle-ha"
+		"registry": "https://npm.pkg.github.com/surelle-ha"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
