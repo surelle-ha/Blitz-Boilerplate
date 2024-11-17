@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/*
 
 jobs:
   publish-package:
@@ -26,7 +27,20 @@ jobs:
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
 
       - run: npm install
+
+      - name: Check Package Version
+        run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "https://npm.pkg.github.com/@${{ github.repository_owner }}/${PACKAGE_NAME}/v/${PACKAGE_VERSION}")
+          if [ "$RESPONSE" = "200" ]; then
+            echo "Version $PACKAGE_VERSION of $PACKAGE_NAME already exists in the registry."
+            exit 1
+          fi
+          echo "Version $PACKAGE_VERSION does not exist. Proceeding to publish."
+
       - run: tsc --build
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
