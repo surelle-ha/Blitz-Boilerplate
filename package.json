@@ -1,6 +1,6 @@
 {
 	"name": "@surelle-ha/blitz",
-	"version": "1.0.2",
+	"version": "1.2.0",
 	"description": "A boilerplate for NestJS Packages.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
