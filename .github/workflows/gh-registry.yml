@@ -37,7 +37,7 @@ jobs:
             echo "Version $PACKAGE_VERSION of $PACKAGE_NAME already exists in the registry."
             exit 1
           fi
-          echo "Version $PACKAGE_VERSION does not exist. Proceeding to publish."
+          echo "Version $PACKAGE_VERSION of $PACKAGE_NAME does not exist. Proceeding to publish."
 
       - run: tsc --build
 
